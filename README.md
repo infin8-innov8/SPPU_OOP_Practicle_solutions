@@ -1,5 +1,5 @@
 # SPPU OOP Practicle solutions - Second Year of Computer Engg. SPPU
-    Welcome to the repository showcasing practical solutions for Object-Oriented Programming (OOP) assignments and projects undertaken during the second year of Computer Engineering at SPPU University. 
+Welcome to the repository showcasing practical solutions for Object-Oriented Programming (OOP) assignments and projects undertaken during the second year of Computer Engineering at SPPU University. 
 
 - Key Features:
 

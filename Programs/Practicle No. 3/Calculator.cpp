@@ -15,6 +15,7 @@ namespace Calculators {
         public : 
             // creating default constructor
             Calculator (void) { 
+                std::cout << "Default constructor called." << std::endl;
                 num1 = 0; 
                 num2 = 0;
                 opr = '\0';

@@ -230,7 +230,6 @@ int main() {
     s1_a.scan_info(s1_b);
 
     // Display student information
-    std::cout << "\n--- Student Information ---\n";
     s1_a.print_all_info(s1_b);
 
     // Demonstrating the copy constructor by creating a new student

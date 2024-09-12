@@ -16,7 +16,6 @@ namespace complex_numbers {
 
             // creating constructor of the class complex. 
             Complex(void) { 
-                std::cout << "Default constructor called." << std::endl;
                 real = 0;
                 imag = 0;
             }

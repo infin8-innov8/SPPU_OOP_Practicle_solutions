@@ -29,80 +29,83 @@ namespace Student_database {
     
     // implimentation of Class to store additional information about students
     class Student_additional_info {
-    private:
-        int8_t* dob_d;              // Day of birth
-        int8_t* dob_m;              // Month of birth
-        int16_t* dob_y;             // Year of birth
-        std::string* blood_group;    // Blood group
-        std::string* address;        // Contact address
-        std::string* phone_no;       // Phone number
-        std::string* licence_no;     // Driving license number
-
-
-    public:
-        // Static member variables
-        static size_t regi_count;    // Registered student count
-        static size_t count;         // Active student count
-        static size_t unregi_count;  // Unregistered student count
-        // Constructor to initialize all fields
-        Student_additional_info() {
-            dob_d = new int8_t(0);
-            dob_m = new int8_t(0);
-            dob_y = new int16_t(0);
-            blood_group = new std::string("Blood group not available.");
-            address = new std::string("Address not available.");
-            phone_no = new std::string("Phone number not available.");
-            licence_no = new std::string("License number not available.");
-            increment_regi_count();  // Increment registered student count on creation
-        }
-
-        // Destructor to free allocated memory and update unregistered student count
-        ~Student_additional_info() {
-            delete dob_d;
-            delete dob_m;
-            delete dob_y;
-            delete blood_group;
-            delete address;
-            delete phone_no;
-            delete licence_no;
-            increment_unregi_count();  // Increment unregistered student count on deletion
-        }
-
-        // Copy constructor for deep copying of all fields
-        Student_additional_info(const Student_additional_info &obj) {
-            dob_d = new int8_t(*obj.dob_d);
-            dob_m = new int8_t(*obj.dob_m);
-            dob_y = new int16_t(*obj.dob_y);
-            blood_group = new std::string(*obj.blood_group);
-            address = new std::string(*obj.address);
-            phone_no = new std::string(*obj.phone_no);
-            licence_no = new std::string(*obj.licence_no);
-            increment_regi_count();  // Each copy is counted as a new registration
-        }
-
-        // Increment the number of registered students
-        static void increment_regi_count() { 
-            regi_count++; 
-            count++; 
-        }
-
-        // Increment the number of unregistered students
-        static void increment_unregi_count() { 
-            count--; unregi_count++; 
-        }
-
-        // Static member function to set the initial counts (can be called without an object)
-        inline void set_count(size_t r, size_t c, size_t u) { 
-            regi_count = r; 
-            count = c; 
-            unregi_count = u; 
-        }
-
-        // Function to print all the additional information for a student
-        inline void print_all_info(const Student_basic_info &obj);
-
-        // Function to scan additional info from user input
-        inline void scan_info(Student_basic_info &obj);
+        private:
+            int8_t* dob_d;              // Day of birth
+            int8_t* dob_m;              // Month of birth
+            int16_t* dob_y;             // Year of birth
+            std::string* blood_group;    // Blood group
+            std::string* address;        // Contact address
+            std::string* phone_no;       // Phone number
+            std::string* licence_no;     // Driving license number
+    
+    
+        public:
+            // Static member variables
+            static size_t regi_count;    // Registered student count
+            static size_t count;         // Active student count
+            static size_t unregi_count;  // Unregistered student count
+    
+            // Constructor to initialize all fields
+            Student_additional_info() {
+                dob_d = new int8_t(0);
+                dob_m = new int8_t(0);
+                dob_y = new int16_t(0);
+                blood_group = new std::string("Blood group not available.");
+                address = new std::string("Address not available.");
+                phone_no = new std::string("Phone number not available.");
+                licence_no = new std::string("License number not available.");
+                increment_regi_count();  // Increment registered student count on creation
+            }
+    
+            // Destructor to free allocated memory and update unregistered student count
+            ~Student_additional_info() {
+                delete dob_d;
+                delete dob_m;
+                delete dob_y;
+                delete blood_group;
+                delete address;
+                delete phone_no;
+                delete licence_no;
+                increment_unregi_count();  // Increment unregistered student count on deletion
+            }
+    
+            // Copy constructor for deep copying of all fields
+            Student_additional_info(const Student_additional_info &obj) {
+                dob_d = new int8_t(*obj.dob_d);
+                dob_m = new int8_t(*obj.dob_m);
+                dob_y = new int16_t(*obj.dob_y);
+                blood_group = new std::string(*obj.blood_group);
+                address = new std::string(*obj.address);
+                phone_no = new std::string(*obj.phone_no);
+                licence_no = new std::string(*obj.licence_no);
+                increment_regi_count();  // Each copy is counted as a new registration
+            }
+    
+            // Increment the number of registered students
+            static void increment_regi_count() { 
+                regi_count++; 
+                count++; 
+            }
+    
+            // Increment the number of unregistered students
+            static void increment_unregi_count() { 
+                count--; unregi_count++; 
+            }
+    
+            // Static member function to set the initial counts (can be called without an object)
+            inline static void set_count(size_t r, size_t c, size_t u) { 
+                regi_count = r; 
+                count = c; 
+                unregi_count = u; 
+            }
+    
+            // Function to print all the additional information for a student
+            inline void print_all_info (const Student_basic_info &obj);
+    
+            // Function to scan both additional and basic info from user input
+            inline void scan_info(Student_basic_info &obj);
+            // function to print both additional and basic info.
+            inline static void const print_count ();
     };
 
     // Class to store basic information about students
@@ -215,15 +218,21 @@ namespace Student_database {
     size_t Student_additional_info::count = 0;
     size_t Student_additional_info::unregi_count = 0;
 
+    inline void const Student_database::Student_additional_info::print_count(){ 
+        std::cout << "Total number of student registered : " << regi_count << std::endl;
+        std::cout << "Total number of student active : " << count << std::endl; 
+        std::cout << "Total number of student unregistered : " << unregi_count << std::endl; 
+    }
+
 } // End of namespace Student_database
 
-int main() {
+int main() { 
+    // Initialize the static count variables
+    Student_database::Student_additional_info::set_count(0, 0, 0);
+    
     // Creating objects for Student_basic_info and Student_additional_info
     Student_database::Student_basic_info s1_b;
     Student_database::Student_additional_info s1_a;
-
-    // Initialize the static count variables
-    s1_a.set_count(0, 0, 0);
 
     // Input student information
     std::cout << "Enter the information of the student: \n";
@@ -240,6 +249,9 @@ int main() {
     // Display the copied student's information
     std::cout << "\n--- Copied Student Information ---\n";
     s2_a.print_all_info(s2_b);
+
+    std::cout << std::endl << std::endl;
+    Student_database::Student_additional_info::print_count(); 
 
     std::cout << "\n\n===| Code Executed Successfully |===" << std::endl << std::endl;  
 

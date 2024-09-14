@@ -21,7 +21,7 @@
 //          @ dynamic memory allocation operators-new and delete
 
 #include <iostream> 
-#include <string>  // Include this to use std::string
+#include <string> // Include this to use std::string
 
 namespace Student_database {
     // Forward declaration of class Student_basic_info
@@ -47,13 +47,13 @@ namespace Student_database {
     
             // Constructor to initialize all fields
             Student_additional_info() {
-                dob_d = new int8_t(0);
-                dob_m = new int8_t(0);
-                dob_y = new int16_t(0);
-                blood_group = new std::string("Blood group not available.");
-                address = new std::string("Address not available.");
-                phone_no = new std::string("Phone number not available.");
-                licence_no = new std::string("License number not available.");
+                this->dob_d = new int8_t(0);
+                this->dob_m = new int8_t(0);
+                this->dob_y = new int16_t(0);
+                this->blood_group = new std::string("Blood group not available.");
+                this->address = new std::string("Address not available.");
+                this->phone_no = new std::string("Phone number not available.");
+                this->licence_no = new std::string("License number not available.");
                 increment_regi_count();  // Increment registered student count on creation
             }
     
@@ -71,13 +71,13 @@ namespace Student_database {
     
             // Copy constructor for deep copying of all fields
             Student_additional_info(const Student_additional_info &obj) {
-                dob_d = new int8_t(*obj.dob_d);
-                dob_m = new int8_t(*obj.dob_m);
-                dob_y = new int16_t(*obj.dob_y);
-                blood_group = new std::string(*obj.blood_group);
-                address = new std::string(*obj.address);
-                phone_no = new std::string(*obj.phone_no);
-                licence_no = new std::string(*obj.licence_no);
+                this->dob_d = new int8_t(*obj.dob_d);
+                this->dob_m = new int8_t(*obj.dob_m);
+                this->dob_y = new int16_t(*obj.dob_y);
+                this->blood_group = new std::string(*obj.blood_group);
+                this->address = new std::string(*obj.address);
+                this->phone_no = new std::string(*obj.phone_no);
+                this->licence_no = new std::string(*obj.licence_no);
                 increment_regi_count();  // Each copy is counted as a new registration
             }
     
@@ -89,7 +89,8 @@ namespace Student_database {
     
             // Increment the number of unregistered students
             static void increment_unregi_count() { 
-                count--; unregi_count++; 
+                count--; 
+                unregi_count++; 
             }
     
             // Static member function to set the initial counts (can be called without an object)

@@ -21,7 +21,7 @@
 //          @ dynamic memory allocation operators-new and delete
 
 #include <iostream> 
-#include <string> // Include this to use std::string
+#include <string>  // Include this to use std::string
 
 namespace Student_database {
     // Forward declaration of class Student_basic_info
@@ -30,9 +30,9 @@ namespace Student_database {
     // implimentation of Class to store additional information about students
     class Student_additional_info {
         private:
-            int8_t* dob_d;              // Day of birth
-            int8_t* dob_m;              // Month of birth
-            int16_t* dob_y;             // Year of birth
+            int* dob_d;              // Day of birth
+            int* dob_m;              // Month of birth
+            int* dob_y;             // Year of birth
             std::string* blood_group;    // Blood group
             std::string* address;        // Contact address
             std::string* phone_no;       // Phone number
@@ -47,9 +47,9 @@ namespace Student_database {
     
             // Constructor to initialize all fields
             Student_additional_info() {
-                this->dob_d = new int8_t(0);
-                this->dob_m = new int8_t(0);
-                this->dob_y = new int16_t(0);
+                this->dob_d = new int(0);
+                this->dob_m = new int(0);
+                this->dob_y = new int(0);
                 this->blood_group = new std::string("Blood group not available.");
                 this->address = new std::string("Address not available.");
                 this->phone_no = new std::string("Phone number not available.");
@@ -71,9 +71,9 @@ namespace Student_database {
     
             // Copy constructor for deep copying of all fields
             Student_additional_info(const Student_additional_info &obj) {
-                this->dob_d = new int8_t(*obj.dob_d);
-                this->dob_m = new int8_t(*obj.dob_m);
-                this->dob_y = new int16_t(*obj.dob_y);
+                this->dob_d = new int(*obj.dob_d);
+                this->dob_m = new int(*obj.dob_m);
+                this->dob_y = new int(*obj.dob_y);
                 this->blood_group = new std::string(*obj.blood_group);
                 this->address = new std::string(*obj.address);
                 this->phone_no = new std::string(*obj.phone_no);
@@ -148,11 +148,10 @@ namespace Student_database {
 
     // Implementation of scan_info function to input student details
     inline void Student_additional_info::scan_info(Student_basic_info &obj) {
-        std::string s;
-        int8_t in8;
-        int16_t in16;
-        size_t sz;
-        char c;
+        std::string s ="\0";
+        int num;
+        size_t sz = 0;
+        char c = '\0';
 
         // Input for basic information
         std::cout << "\tEnter name of class: ";
@@ -174,13 +173,13 @@ namespace Student_database {
         *obj.name = s;
 
         // Input for additional information
-        std::cout << "\tDate of birth (d m yyyy) : ";
-        std::cin >> in8;
-        *dob_d = in8;
-        std::cin >> in8;
-        *dob_m = in8;
-        std::cin >> in16;
-        *dob_y = in16;
+        std::cout << "\tDate of birth (dd mm yyyy) : ";
+        std::cin >> num;
+        *dob_d = num;
+        std::cin >> num;
+        *dob_m = num;
+        std::cin >> num;
+        *dob_y = num;
 
         std::cin.ignore();
         std::cout << "\tEnter Blood group: ";

@@ -94,7 +94,7 @@ int main() {
     CppArray arr2 = arr; 
     std::cout << arr2; 
     
-    std::cout << "\n--- main function terminated ---" << std::endl; 
+    std::cout << "(main function terminated)" << std::endl; 
     std::cout << "\n===| Code execution successful |===" << std::endl; 
     return 0;
 }

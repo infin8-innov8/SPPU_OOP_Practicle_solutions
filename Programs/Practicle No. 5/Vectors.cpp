@@ -72,5 +72,5 @@ int main() {
 
     std::cout << "\n(main function terminated)" << std::endl; 
 
-    std::cout << "\n\t=== Program execution successful ===" << std::endl;
+    std::cout << "\n=== Program execution successful ===" << std::endl;
 }

@@ -262,9 +262,9 @@ int main() {
     std::cout << "\n--- Copied Student Information ---\n";
     s2_a.print_all_info(s2_b);
 
-    std::cout << std::endl << std::endl;
-    std::cout << "--- total count of student ---" << std::endl;
+    std::cout << "\n--- total count of student ---" << std::endl;
     Student_database::Student_additional_info::print_count(); 
 
-    std::cout << "\n\n===| Main function is terminated |===" << std::endl << std::endl;  
+    std::cout << "\n--- Main function is terminated ---" << std::endl;  
+    std::cout << "\n=== Program execution successful ===" << std::endl; 
 }

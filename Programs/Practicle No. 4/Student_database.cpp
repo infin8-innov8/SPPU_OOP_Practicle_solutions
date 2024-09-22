@@ -59,6 +59,7 @@ namespace Student_database {
     
             // Destructor to free allocated memory and update unregistered student count
             ~Student_additional_info() {
+                std::cout << "(Distructor of class Student_addtional_info is invoked)" << std::endl;
                 delete dob_d;
                 delete dob_m;
                 delete dob_y;
@@ -131,6 +132,7 @@ namespace Student_database {
 
         // Destructor to clean up allocated memory
         ~Student_basic_info() {
+            std::cout << "(distructor of class Student_basic_info is invoked)" << std::endl;
             delete class_name;
             delete division;
             delete roll_no;
@@ -148,60 +150,69 @@ namespace Student_database {
 
     // Implementation of scan_info function to input student details
     inline void Student_additional_info::scan_info(Student_basic_info &obj) {
-        std::string s ="\0";
-        int num;
-        size_t sz = 0;
-        char c = '\0';
+        std::string *s;
+        s = new std::string("\0");
+        int *num;
+        num = new int(0);
+        size_t *sz;
+        sz = new size_t(0);
+        char *c;
+        c = new char('\0');
+
 
         // Input for basic information
-        std::cout << "\tEnter name of class: ";
-        std::getline(std::cin, s);
-        *obj.class_name = s;
+        std::cout << "\tEnter name of class: \t\t";
+        std::getline(std::cin, *s);
+        *obj.class_name = *s;
 
-        std::cout << "\tEnter Division: ";
-        std::cin >> c;
-        *obj.division = c;
+        std::cout << "\tEnter Division: \t\t";
+        std::cin >> *c;
+        *obj.division = *c;
 
-        std::cout << "\tEnter Roll No. : ";
-        std::cin >> sz;
-        *obj.roll_no = sz;
+        std::cout << "\tEnter Roll No. : \t\t";
+        std::cin >> *sz;
+        *obj.roll_no = *sz;
 
         std::cin.ignore(); 
 
-        std::cout << "\tEnter Student Name: ";
-        std::getline(std::cin, s);
-        *obj.name = s;
+        std::cout << "\tEnter Student Name: \t\t";
+        std::getline(std::cin, *s);
+        *obj.name = *s;
 
         // Input for additional information
-        std::cout << "\tDate of birth (dd mm yyyy) : ";
-        std::cin >> num;
-        *dob_d = num;
-        std::cin >> num;
-        *dob_m = num;
-        std::cin >> num;
-        *dob_y = num;
+        std::cout << "\tDate of birth (dd mm yyyy) : \t";
+        std::cin >> *num;
+        *dob_d = *num;
+        std::cin >> *num;
+        *dob_m = *num;
+        std::cin >> *num;
+        *dob_y = *num;
 
         std::cin.ignore();
-        std::cout << "\tEnter Blood group: ";
-        std::getline(std::cin, s);
-        *blood_group = s;
+        std::cout << "\tEnter Blood group: \t\t";
+        std::getline(std::cin, *s);
+        *blood_group = *s;
 
-        std::cout << "\tEnter Contact address: ";
-        std::getline(std::cin, s);
-        *address = s;
+        std::cout << "\tEnter Contact address: \t\t";
+        std::getline(std::cin, *s);
+        *address = *s;
 
-        std::cout << "\tEnter Phone no.(xxxx xx xxxx) : ";
-        std::getline(std::cin, s);
-        *phone_no = s;
+        std::cout << "\tEnter Phone no.(xxxx xx xxxx) :\t";
+        std::getline(std::cin, *s);
+        *phone_no = *s;
 
-        std::cout << "\tEnter Driving licence No.: ";
-        std::getline(std::cin, s);
-        *licence_no = s;
+        std::cout << "\tEnter Driving licence No.: \t";
+        std::getline(std::cin, *s);
+        *licence_no = *s;
+
+        delete s;
+        delete num;
+        delete sz; 
+        delete c;
     }
 
     // Implementation of print_all_info function to display student details
     inline void Student_additional_info::print_all_info(const Student_basic_info &obj) {
-        std::cout << "\n--- Student Information ---\n";
         std::cout << "\tClass Name\t\t: " << *obj.class_name << std::endl;
         std::cout << "\tDivision\t\t: " << *obj.division << std::endl;
         std::cout << "\tRoll No.\t\t: " << *obj.roll_no << std::endl;
@@ -219,9 +230,9 @@ namespace Student_database {
     size_t Student_additional_info::unregi_count = 0;
 
     inline void const Student_database::Student_additional_info::print_count(){ 
-        std::cout << "Total number of student registered : " << regi_count << std::endl;
-        std::cout << "Total number of student active : " << count << std::endl; 
-        std::cout << "Total number of student unregistered : " << unregi_count << std::endl; 
+        std::cout << "Total number of student registered : \t" << regi_count << std::endl;
+        std::cout << "Total number of student active : \t" << count << std::endl; 
+        std::cout << "Total number of student unregistered : \t" << unregi_count << std::endl; 
     }
 
 } // End of namespace Student_database
@@ -239,6 +250,7 @@ int main() {
     s1_a.scan_info(s1_b);
 
     // Display student information
+    std::cout << "\n--- Student Information ---\n";
     s1_a.print_all_info(s1_b);
 
     // Demonstrating the copy constructor by creating a new student
@@ -251,9 +263,8 @@ int main() {
     s2_a.print_all_info(s2_b);
 
     std::cout << std::endl << std::endl;
+    std::cout << "--- total count of student ---" << std::endl;
     Student_database::Student_additional_info::print_count(); 
 
-    std::cout << "\n\n===| Code Executed Successfully |===" << std::endl << std::endl;  
-
-    return 0;
+    std::cout << "\n\n===| Main function is terminated |===" << std::endl << std::endl;  
 }

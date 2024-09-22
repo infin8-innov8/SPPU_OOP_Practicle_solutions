@@ -25,7 +25,7 @@ namespace Vectors {
             // Function to display the vector porperly.
             void display_vector() const { 
                 std::cout << "(display function invoked)" << std::endl;
-                std::cout << "\tThe vector is : (" << i << ")i + (" << j << ")j + (" << k << ") " << std::endl;
+                std::cout << "\tThe vector is : (" << i << ")i + (" << j << ")j + (" << k << ")k " << std::endl;
             }
 
             // Function to multiply a scalar value to the vector.
@@ -42,7 +42,7 @@ namespace Vectors {
 
             // Function to assign data members or modify members
             void scan_vector() { 
-                std::cout << "\tEter the values in vector (x)i + (y)j + (z)k :" << std::endl;
+                std::cout << "\tEnter the values in vector (x)i + (y)j + (z)k :" << std::endl;
                 std::cout << "\t\tx = " ;
                 std::cin >> i; 
 
@@ -72,5 +72,5 @@ int main() {
 
     std::cout << "\n(main function terminated)" << std::endl; 
 
-    std::cout << "\n\t=== Program executed successfuly ===" << std::endl;
+    std::cout << "\n\t=== Program execution successful ===" << std::endl;
 }

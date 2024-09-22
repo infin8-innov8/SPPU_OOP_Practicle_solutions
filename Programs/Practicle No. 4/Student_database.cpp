@@ -265,6 +265,6 @@ int main() {
     std::cout << "\n--- total count of student ---" << std::endl;
     Student_database::Student_additional_info::print_count(); 
 
-    std::cout << "\n--- Main function is terminated ---" << std::endl;  
-    std::cout << "\n=== Program execution successful ===" << std::endl; 
+    std::cout << "(Main function is terminated)" << std::endl;  
+    std::cout << "\n===| Program execution successful |===" << std::endl; 
 }

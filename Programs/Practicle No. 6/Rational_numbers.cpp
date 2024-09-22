@@ -42,11 +42,11 @@ namespace Rational_numbers {
             // function to scan and assign number
             void scan_num() { 
                 std::cout << "(scan function invoked)" << std::endl;
-                std::cout << "\t\tEnter the numbers in the fraction : " << std::endl;
-                std::cout << "\t\t\tnumerator = "; 
+                std::cout << "\tEnter the numbers in the fraction : " << std::endl;
+                std::cout << "\t\tnumerator = "; 
                 std::cin >> num; 
                 do { 
-                    std::cout << "\t\t\tdenominator = ";
+                    std::cout << "\t\tdenominator = ";
                     std::cin >> denom; 
 
                     if (denom == 0) { 
@@ -161,5 +161,5 @@ int main() {
     std::cout << "\tfraction1 / fraction2 = " << fraction1 / fraction2 << std::endl; 
 
     std::cout << "\n(main function terminated)" << std::endl;
-    std::cout << "\n\t=== Program executed successfuly ===" << std::endl;
+    std::cout << "\n=== Program executed successfuly ===" << std::endl;
 }

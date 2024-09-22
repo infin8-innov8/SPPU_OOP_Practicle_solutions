@@ -83,5 +83,7 @@ int main() {
     resultant_num = (num1 * num2);
     std::cout << "\tThe multiplication of the given two complex numbers is : " << resultant_num << std::endl; 
 
+    std::cout << "(main function terminated)" << std::endl;
+
     std::cout << "===| Code Executed Successfuly |===" << std::endl;
 }

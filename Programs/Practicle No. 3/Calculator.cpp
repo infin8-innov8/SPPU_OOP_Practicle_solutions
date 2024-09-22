@@ -71,7 +71,7 @@ int main() {
         object.calculate() ; 
     }
 
-    std::cout << "\n--- main function terminated ---" << std::endl;
+    std::cout << "(main function terminated)" << std::endl;
     std::cout << "===| Code Execution Successfull |===" << std::endl << std::endl; 
     return 0;
 }

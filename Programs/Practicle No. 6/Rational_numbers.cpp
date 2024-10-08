@@ -12,7 +12,7 @@ namespace Rational_numbers {
     class Rational_num { 
         private : 
             int num, denom; 
-            // to get gcd : gretest commer deviser
+            // to get gcd : gretest common deviser
             int gcd(int a, int b) {
                 int result = (b > a) ? a : b; // assign the minimum number to result
 

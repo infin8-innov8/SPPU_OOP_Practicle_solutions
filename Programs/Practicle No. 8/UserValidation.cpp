@@ -38,6 +38,7 @@ int main()  {
 
     } catch (std::exception& exp) {   
         std::cout << exp.what() << std::endl; 
+        sts::cout << "Execution terminated" << std::endl;
         return 1;       // not 0, because exception occured within the execution.
     }
 
